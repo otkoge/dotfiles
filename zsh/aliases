@@ -1,0 +1,17 @@
+# Basics
+unalias gf
+alias python="python3"
+alias vimrc="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
+alias dot="cd ~/.dot"
+alias myip="curl -s ifconfig.me && echo"
+
+# Host specific
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+
+else
+    echo "Unkown Platform"
+fi

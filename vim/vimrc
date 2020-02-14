@@ -1,0 +1,62 @@
+if has("macunix")
+    " This is needed to disable the highlights of matching "{( etc...
+	function! g:FckThatMatchParen ()
+		if exists(":NoMatchParen")
+			:NoMatchParen
+		endif
+	endfunction
+
+	augroup plugin_initialize
+		autocmd!
+		autocmd VimEnter * call FckThatMatchParen()
+	augroup END
+elseif has("unix")
+    
+endif
+
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup 
+
+colo desert
+set nocompatible                            " Disable vi compatibility (might be superfluous)
+set autoread                                " Auto reload changed files
+set laststatus=2                            " status bar at the bottom
+set t_Co=256                                " Color settings
+syntax enable                               " syntax highligh
+set number                                  " show line numbers
+set relativenumber                          " relative numbers are shown
+set ts=4                                    " set tabs to have 4 spaces
+set autoindent                              " indent when moving to the next line while writing code
+set expandtab                               " expand tabs into spaces
+set shiftwidth=4                            " when using the >> or << commands, shift lines by 4 spaces
+set cursorline                              " show a visual line under the cursor's current line
+set noshowmatch                             " Do not show the matching part of the pair for [] {} and ()
+set splitright                              " Open new splits to the right
+set splitbelow                              " Open new splits to the bottom
+set history=1000                            " Set remembered lines
+set hlsearch                                " Highligh searches
+set incsearch                               " Show search results as you type
+set timeoutlen=1000 ttimeoutlen=0           " Remove timeout when hitting escape
+" set backspace=indent,eol,start              " http://vi.stackexchange.com/a/2163
+
+" Python specific stuff
+let python_highlight_all = 1                " enable all Python syntax highlighting features
+
+" Shortcuts
+" quite all with leader q
+map <Leader>q :qall<CR>                     " Quit all with Leader+q
+nnoremap <C-h> <C-w>h                       " Moving between panes on split screen
+nnoremap <C-j> <C-w>j                       " Moving between panes on split screen
+nnoremap <C-k> <C-w>k                       " Moving between panes on split screen
+nnoremap <C-l> <C-w>l                       " Moving between panes on split screen
+
+" Mods
+" Idea from tomnomnom
+if $VIMENV == 'prev'
+  noremap <Space> :n<CR>
+  noremap <Backspace> :N<CR>
+  set noswapfile
+endif
+
+source ~/.plugins.vim

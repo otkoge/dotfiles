@@ -1,0 +1,15 @@
+compdef _wfuzz wfuzz
+function _wfuzz {
+     WFUZZ_EX="$(which wfuzz | cut -d" " -f4)"
+     _arguments '--zD[DEFAULT]'\
+                '--zE[ENCODERS]'\
+                '-d[POST_DATA]'\
+                '-u[URL_to_fuzz]'\
+                '--hc[HIDE_HTTP_CODES]:http_code:_values -s , code 400 401 301 302 500 404 200'\
+                '-p[PROXY]:proxy:_values -s , proxy $BURP'\
+                '-H[Headers]'\
+                '-z[PAYLOAD]:payload:_values payload $($WFUZZ_EX --ee payloads)'\
+                '-e[LIST_OF_REGS]:encoder:_values encoder $($WFUZZ_EX --ee registrants)'\
+                '-V[All_param_bruteforce]:param:_values param allvars allpost allheaders'\
+                '-X[HTTP_Method]:method:_values method FUZZ OPTIONS PUT DELETE POST GET TRACE CONNECT HEAD'
+}
