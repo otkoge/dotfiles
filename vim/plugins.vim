@@ -12,4 +12,5 @@ Plug 'christoomey/vim-system-copy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'benmills/vimux'
 call plug#end()

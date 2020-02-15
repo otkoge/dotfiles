@@ -50,6 +50,7 @@ nnoremap <C-h> <C-w>h                       " Moving between panes on split scre
 nnoremap <C-j> <C-w>j                       " Moving between panes on split screen
 nnoremap <C-k> <C-w>k                       " Moving between panes on split screen
 nnoremap <C-l> <C-w>l                       " Moving between panes on split screen
+map <Leader>g :call VimuxRunCommand("go run " . bufname("%"))<CR>
 
 " Mods
 " Idea from tomnomnom
@@ -59,5 +60,5 @@ if $VIMENV == 'prev'
   set noswapfile
 endif
 
-source ~/.plugins.vim
-source ~/.statusline.vim
+source ~/.vim/plugins.vim
+source ~/.vim/statusline.vim

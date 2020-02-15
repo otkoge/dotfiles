@@ -146,4 +146,3 @@ fi
 
 for f in $HOME/.completions/*_comp; do source $f; done
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-cd $HOME

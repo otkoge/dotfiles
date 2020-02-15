@@ -19,10 +19,10 @@ VIMRCFILE="$HOME/.vimrc"
 symlink_if_needed $VIMRCFILE "$DIR/vim/vimrc" 
 
 
-VIMPLUGINS="$HOME/.plugins.vim"
+VIMPLUGINS="$HOME/.vim/plugins.vim"
 symlink_if_needed $VIMPLUGINS "$DIR/vim/plugins.vim" 
 
-VIMSTL="$HOME/.statusline.vim"
+VIMSTL="$HOME/.vim/statusline.vim"
 symlink_if_needed $VIMSTL "$DIR/vim/statusline.vim" 
 
 ZSHRCFILE="$HOME/.zshrc"
