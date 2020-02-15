@@ -39,11 +39,13 @@ set statusline=
 set statusline+=%#Conceal#
 set statusline+=%{toupper(g:currentmode[mode()])}
 set statusline+=%#StatusLineTerm#
+set statusline+=
 set statusline+=\ %t
 set statusline+=\ \ 
 set statusline+=
 set statusline+=\ \ 
-set statusline+=%#LineNr#
+set statusline+=%#CursorColumn#
+set statusline+=
 set statusline+=\ %F
 set statusline+=%m
 set statusline+=\ \ 
@@ -60,5 +62,6 @@ set statusline+=\ %p%%
 set statusline+=\ %l/%L:%c
 
 hi TabLineFill ctermfg=DarkGray ctermbg=DarkGray
+hi CursorColumn term=reverse ctermbg=242 guibg=Grey40 ctermfg=LightGreen guifg=LightGreen 
 hi TabLine ctermfg=Black ctermbg=Gray
 hi TabLineSel ctermfg=Black ctermbg=LightGreen
