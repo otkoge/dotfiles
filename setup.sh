@@ -22,6 +22,9 @@ symlink_if_needed $VIMRCFILE "$DIR/vim/vimrc"
 VIMPLUGINS="$HOME/.plugins.vim"
 symlink_if_needed $VIMPLUGINS "$DIR/vim/plugins.vim" 
 
+VIMSTL="$HOME/.statusline.vim"
+symlink_if_needed $VIMSTL "$DIR/vim/statusline.vim" 
+
 ZSHRCFILE="$HOME/.zshrc"
 symlink_if_needed $ZSHRCFILE "$DIR/zsh/zshrc" 
 

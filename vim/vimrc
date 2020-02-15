@@ -14,9 +14,9 @@ elseif has("unix")
     
 endif
 
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup 
+" python3 from powerline.vim import setup as powerline_setup
+" python3 powerline_setup()
+" python3 del powerline_setup 
 
 colo desert
 set nocompatible                            " Disable vi compatibility (might be superfluous)
@@ -60,3 +60,4 @@ if $VIMENV == 'prev'
 endif
 
 source ~/.plugins.vim
+source ~/.statusline.vim
