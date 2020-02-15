@@ -1,5 +1,6 @@
 # https://github.com/Powerlevel9k/powerlevel9k/tree/next/segments
 # https://github.com/Powerlevel9k/powerlevel9k/blob/master/functions/colors.zsh
+# https://www.nerdfonts.com/cheat-sheet
 POWERLEVEL9K_MODE=nerdfont-complete
 
 # Make a new line after the status bar before the prompt
@@ -7,8 +8,8 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 # Always make new line before next prompt
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode custom_os_icon  ssh root_indicator dir virtualenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time dir_writable)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode custom_os_icon  ssh root_indicator dir) 
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status dir_writable virtualenv vcs)
 
 # Name
 POWERLEVEL9K_CUSTOM_OS_ICON='echo   $(whoami) '
@@ -19,7 +20,7 @@ POWERLEVEL9K_CUSTOM_OS_ICON_FOREGROUND=black
 # Git repo specific
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
-POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
+POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf417'
 
 POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
 # Colors of prompt
@@ -64,11 +65,6 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND='black'
 POWERLEVEL9K_VIRTUALENV_BACKGROUND='springgreen1'
 
 
-# Date and clock
-POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M \uf073 %Y/%m/%d}"
-POWERLEVEL9K_TIME_BACKGROUND='white'
-
-
 POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="white"
 POWERLEVEL9K_LOAD_WARNING_BACKGROUND="white"
 POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="white"
@@ -78,5 +74,10 @@ POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="black"
 POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
 POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
 POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
+
+# Status
 POWERLEVEL9K_STATUS_VERBOSE=true
-POWERLEVEL9K_STATUS_CROSS=true
+POWERLEVEL9K_STATUS_OK_BACKGROUND='springgreen2'
+POWERLEVEL9K_STATUS_OK_FOREGROUND='black'
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND='silver'
+
