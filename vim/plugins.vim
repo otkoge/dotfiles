@@ -3,7 +3,7 @@ call vundle#begin()
 " Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plugin 'fatih/vim-go'
 " Plugin 'valloric/youcompleteme'
 " cd ~/.vim/plugged/youcompleteme/
 " python3 install.py --all
