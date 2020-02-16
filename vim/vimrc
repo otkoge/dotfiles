@@ -11,7 +11,7 @@ if has("macunix")
 		autocmd VimEnter * call FckThatMatchParen()
 	augroup END
 elseif has("unix")
-    
+    let g:system_copy#copy_command = $VIMCLIP
 endif
 
 " python3 from powerline.vim import setup as powerline_setup
@@ -62,3 +62,4 @@ endif
 
 source ~/.vim/plugins.vim
 source ~/.vim/statusline.vim
+

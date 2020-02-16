@@ -142,6 +142,7 @@ export PATH=$PATH:$HOME/.scripts
 ## Alieses & Completions
 source "$HOME/.aliases"
 
+VIMCLIP="xclip -sel clipboard"
 if [ -f "$HOME/.localaliases" ]; then
     source "$HOME/.localaliases"
 fi
