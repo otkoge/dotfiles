@@ -19,6 +19,8 @@ endif
 " python3 del powerline_setup 
 
 colo desert
+set path+=**                                " Files from all subfolders will tabcomplete
+set wildmenu                                " Display all matching file when tabcomplete
 set nocompatible                            " Disable vi compatibility (might be superfluous)
 set autoread                                " Auto reload changed files
 set laststatus=2                            " status bar at the bottom
@@ -53,7 +55,7 @@ nnoremap <C-h> <C-w>h                       " Moving between panes on split scre
 nnoremap <C-j> <C-w>j                       " Moving between panes on split screen
 nnoremap <C-k> <C-w>k                       " Moving between panes on split screen
 nnoremap <C-l> <C-w>l                       " Moving between panes on split screen
-map <Leader>g :call VimuxRunCommand("go run " . bufname("%"))<CR>
+noremap <Leader>g :call VimuxRunCommand("go run " . bufname("%"))<CR>
 
 " Mods
 " Idea from tomnomnom

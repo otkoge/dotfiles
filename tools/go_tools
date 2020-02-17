@@ -7,6 +7,8 @@ github.com/tomnomnom/unfurl
 github.com/tomnomnom/anew
 github.com/tomnomnom/waybackurls
 github.com/tomnomnom/hacks/urinteresting
+# Taking screenshots of HTTP endpoints
+github.com/sensepost/gowitness
 
 # Markdown rendering in terminal
 github.com/charmbracelet/glow
