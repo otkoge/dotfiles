@@ -6,7 +6,7 @@ function _wfuzz {
                 '-d[POST_DATA]'\
                 '-u[URL_to_fuzz]'\
                 '--hc[HIDE_HTTP_CODES]:http_code:_values -s , code 400 401 301 302 500 404 200'\
-                '-p[PROXY]:proxy:_values -s , proxy $BURP'\
+                '-p[PROXY]:proxy:_values proxy $( echo "$BURP" )'\
                 '-H[Headers]'\
                 '-z[PAYLOAD]:payload:_values payload $($WFUZZ_EX --ee payloads)'\
                 '-e[LIST_OF_REGS]:encoder:_values encoder $($WFUZZ_EX --ee registrants)'\

@@ -43,6 +43,9 @@ set timeoutlen=1000 ttimeoutlen=0           " Remove timeout when hitting escape
 " Python specific stuff
 let python_highlight_all = 1                " enable all Python syntax highlighting features
 
+" Go specific stuff
+let g:go_fmt_command = "goimports"          " Autoimport on save
+
 " Shortcuts
 " quite all with leader q
 map <Leader>q :qall<CR>                     " Quit all with Leader+q
