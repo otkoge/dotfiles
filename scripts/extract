@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function extract {
+    ext=${1#*.}
+    if [[ $ext == "zip" ]]; then
+        unzip $1
+    fi
+
+    if [[  $ext == "tar.gz" ]]; then
+        tar -xzfv $1
+    fi
+}
+
+extract $1
