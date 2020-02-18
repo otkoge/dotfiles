@@ -1,3 +1,13 @@
+function is_installed { 
+    if [[ $1 == "python3-pip" ]]; then
+        which pip3 &> /dev/null
+    else
+        which $1 &> /dev/null 
+    fi
+}
+
+
+
 # Oh my zsh
 if [[ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]]; then
     echo "Installing Oh My ZSH"
