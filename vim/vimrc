@@ -47,6 +47,7 @@ let python_highlight_all = 1                " enable all Python syntax highlight
 
 " Go specific stuff
 let g:go_fmt_command = "goimports"          " Autoimport on save
+autocmd BufNewFile,BufRead *.go set foldmethod=syntax           " Set folding to syntax if it's a go file
 
 " Shortcuts
 " quite all with leader q
