@@ -58,6 +58,12 @@ nnoremap <C-k> <C-w>k                       " Moving between panes on split scre
 nnoremap <C-l> <C-w>l                       " Moving between panes on split screen
 noremap <Leader>g :call VimuxRunCommand("go run " . bufname("%"))<CR>
 
+" Get off my lawn - helpful when learning Vim :)
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
 " Mods
 " Idea from tomnomnom
 if $VIMENV == 'prev'
