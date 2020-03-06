@@ -18,7 +18,6 @@ endif
 " python3 powerline_setup()
 " python3 del powerline_setup 
 
-colo desert
 set path+=**                                " Files from all subfolders will tabcomplete
 set wildmenu                                " Display all matching file when tabcomplete
 set nocompatible                            " Disable vi compatibility (might be superfluous)
@@ -44,10 +43,27 @@ set timeoutlen=1000 ttimeoutlen=0           " Remove timeout when hitting escape
 
 " Python specific stuff
 let python_highlight_all = 1                " enable all Python syntax highlighting features
+set foldlevel=99
+au BufNewFile,BufRead *.py
+    \set tabstop=4
+    \set softtabstop=4
+    \set textwidth=79
+    \set fileformat=unix
+    \set foldmethod=indent           
+    \match BadWhitespace /\s\+$/
+    \set encoding=utf-8
+au BufNewFile,BufRead *.py noremap <Leader>l :call VimuxRunCommand("pylint " . bufname("%"))<CR>
+au BufNewFile,BufRead *.py noremap <Leader>t :call VimuxRunCommand("pytest")<CR>
+if $VIRTUAL_ENV != ""
+    au BufNewFile,BufRead *.py noremap <Leader>p :call VimuxRunCommand($VIRTUAL_ENV . "/bin/python " . bufname("%"))<CR>
+else
+    au BufNewFile,BufRead *.py noremap <Leader>p :call VimuxRunCommand("python " . bufname("%"))<CR>
+endif
 
 " Go specific stuff
 let g:go_fmt_command = "goimports"          " Autoimport on save
 autocmd BufNewFile,BufRead *.go set foldmethod=syntax           " Set folding to syntax if it's a go file
+autocmd BufNewFile,BufRead *.go noremap <Leader>t :call VimuxRunCommand("go test")<CR>
 
 " Shortcuts
 " quite all with leader q
@@ -56,7 +72,8 @@ nnoremap <C-h> <C-w>h                       " Moving between panes on split scre
 nnoremap <C-j> <C-w>j                       " Moving between panes on split screen
 nnoremap <C-k> <C-w>k                       " Moving between panes on split screen
 nnoremap <C-l> <C-w>l                       " Moving between panes on split screen
-noremap <Leader>g :call VimuxRunCommand("go run " . bufname("%"))<CR>
+nnoremap <space> za                         " fold with space
+noremap <Leader>x :call VimuxCloseRunner()<CR>
 
 " Get off my lawn - helpful when learning Vim :)
 nnoremap <Left> :echoe "Use h"<CR>
@@ -64,14 +81,26 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Mods
-" Idea from tomnomnom
-if $VIMENV == 'prev'
-  noremap <Space> :n<CR>
-  noremap <Backspace> :N<CR>
-  set noswapfile
-endif
 
 source ~/.vim/plugins.vim
 source ~/.vim/statusline.vim
 
+
+colo molokai
+let g:molokai_original = 1
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "50"
+
+
+"python with virtualenv support
+
+py3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  exec(open(activate_this).read(), dict(__file__=activate_this))
+EOF
