@@ -24,7 +24,12 @@ function dockershellhere() {
     dirname=${PWD##*/}
     docker run --rm -it --entrypoint=/bin/bash -v `pwd`:/${dirname} -w /${dirname} "$@"
 }
+
 function dockershellshhere() {
     dirname=${PWD##*/}
     docker run --rm -it --entrypoint=/bin/sh -v `pwd`:/${dirname} -w /${dirname} "$@"
 }
+
+alias nginxhere='docker run --rm -it -p 80:80 -p 443:443 -v "${PWD}:/srv/data" rflathers/nginxserve'
+
+alias reqdump="docker run --rm -it -p 80:3000 rflathers/reqdump"
