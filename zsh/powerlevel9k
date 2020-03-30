@@ -12,7 +12,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(vi_mode custom_os_icon  ssh root_indicator di
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status dir_writable virtualenv vcs)
 
 # Name
-POWERLEVEL9K_CUSTOM_OS_ICON='echo   $(whoami) '
+POWERLEVEL9K_CUSTOM_OS_ICON='echo   $(whoami) '
 POWERLEVEL9K_CUSTOM_OS_ICON_BACKGROUND=green
 POWERLEVEL9K_CUSTOM_OS_ICON_FOREGROUND=black
 
