@@ -6,6 +6,13 @@ alias zshrc="vim ~/.zshrc"
 alias dot="cd ~/.dot"
 alias myip="curl -s ifconfig.me && echo"
 
+# lsd
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
 # Host specific
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
