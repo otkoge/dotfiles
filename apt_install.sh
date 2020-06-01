@@ -18,6 +18,8 @@ function install {
   fi
 }
 
+sudo add-apt-repository ppa:jonathonf/vim
+
 install git
 install zsh
 install curl
