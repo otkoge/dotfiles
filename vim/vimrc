@@ -65,6 +65,9 @@ let g:go_fmt_command = "goimports"          " Autoimport on save
 autocmd BufNewFile,BufRead *.go set foldmethod=syntax           " Set folding to syntax if it's a go file
 autocmd BufNewFile,BufRead *.go noremap <Leader>t :call VimuxRunCommand("go test")<CR>
 
+" JS
+autocmd BufNewFile,BufRead *.js set ts=2
+
 " Shortcuts
 " quite all with leader q
 map <Leader>q :qall<CR>                     " Quit all with Leader+q
