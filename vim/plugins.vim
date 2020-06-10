@@ -14,5 +14,6 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
+Plug 'ekalinin/Dockerfile.vim'
 call plug#end()
 filetype plugin indent on
