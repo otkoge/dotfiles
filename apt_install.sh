@@ -31,6 +31,7 @@ function install_lsd {
 
 }
 
+# https://itsfoss.com/vim-8-release-install/
 # sudo add-apt-repository ppa:jonathonf/vim
 
 install git
