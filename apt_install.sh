@@ -10,6 +10,10 @@ function is_installed {
 
 function install {
   is_installed $1
+  if [[ $1 == "vim" ]]; then
+    # https://itsfoss.com/vim-8-release-install/
+    sudo add-apt-repository ppa:jonathonf/vim
+  fi
   if [ $? -ne 0 ]; then
     echo "Installing: ${1}..."
     sudo apt install $1
@@ -31,8 +35,6 @@ function install_lsd {
 
 }
 
-# https://itsfoss.com/vim-8-release-install/
-# sudo add-apt-repository ppa:jonathonf/vim
 
 install git
 install zsh
