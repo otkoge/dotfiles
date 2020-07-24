@@ -16,5 +16,6 @@ Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'preservim/nerdtree'
+Plug 'vim-python/python-syntax'
 call plug#end()
 filetype plugin indent on
