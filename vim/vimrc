@@ -52,8 +52,10 @@ au BufNewFile,BufRead *.py
     \set foldmethod=indent           
     \match BadWhitespace /\s\+$/
     \set encoding=utf-8
+
 au BufNewFile,BufRead *.py noremap <Leader>l :call VimuxRunCommand("pylint " . bufname("%"))<CR>
 au BufNewFile,BufRead *.py noremap <Leader>t :call VimuxRunCommand("pytest")<CR>
+
 if $VIRTUAL_ENV != ""
     au BufNewFile,BufRead *.py noremap <Leader>p :call VimuxRunCommand($VIRTUAL_ENV . "/bin/python " . bufname("%"))<CR>
 else
@@ -77,6 +79,7 @@ nnoremap <C-k> <C-w>k                       " Moving between panes on split scre
 nnoremap <C-l> <C-w>l                       " Moving between panes on split screen
 nnoremap <space> za                         " fold with space
 noremap <Leader>x :call VimuxCloseRunner()<CR>
+noremap <Leader>d "_
 
 " Get off my lawn - helpful when learning Vim :)
 nnoremap <Left> :echoe "Use h"<CR>
