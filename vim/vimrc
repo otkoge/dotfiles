@@ -79,6 +79,7 @@ nnoremap <C-k> <C-w>k                       " Moving between panes on split scre
 nnoremap <C-l> <C-w>l                       " Moving between panes on split screen
 nnoremap <space> za                         " fold with space
 noremap <Leader>x :call VimuxCloseRunner()<CR>
+" Copy to unnamed register
 noremap <Leader>d "_
 
 " Get off my lawn - helpful when learning Vim :)
