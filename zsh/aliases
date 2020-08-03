@@ -13,6 +13,9 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+# Docker
+alias dockerrm="docker rm \$(docker ps -a -q)"
+
 # Host specific
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
