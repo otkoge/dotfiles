@@ -39,7 +39,7 @@ function install_lsd {
 install git
 install zsh
 install curl
-install tmux
 install vim
 install python3-pip
 install_lsd
+install tmux
