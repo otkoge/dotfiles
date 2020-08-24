@@ -7,11 +7,11 @@ alias dot="cd ~/.dot"
 alias myip="curl -s ifconfig.me && echo"
 
 # lsd
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+alias ls='lsd --no-symlink'
+alias l='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lt='lsd --tree'
 
 # Docker
 alias dockerrm="docker rm \$(docker ps -a -q)"
