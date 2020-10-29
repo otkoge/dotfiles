@@ -16,7 +16,6 @@ Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'preservim/nerdtree'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-python/python-syntax'
 Plug 'tmhedberg/SimpylFold'
 call plug#end()
