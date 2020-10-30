@@ -66,6 +66,10 @@ endif
 let g:go_fmt_command = "goimports"          " Autoimport on save
 autocmd BufNewFile,BufRead *.go set foldmethod=syntax           " Set folding to syntax if it's a go file
 autocmd BufNewFile,BufRead *.go noremap <Leader>t :call VimuxRunCommand("go test")<CR>
+autocmd BufNewFile,BufRead *.go noremap <Leader>g :call VimuxRunCommand("go run " . bufname("%"))<CR>
+autocmd BufNewFile,BufRead *.go noremap <Leader>f :call VimuxRunCommand("gofmt " . bufname("%"))<CR>
+autocmd BufNewFile,BufRead *.go noremap <Leader>l :call VimuxRunCommand("golint")<CR>
+autocmd BufNewFile,BufRead *.go noremap <Leader>v :call VimuxRunCommand("go vet")<CR>
 
 " JS
 autocmd BufNewFile,BufRead *.js set ts=2
