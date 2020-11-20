@@ -13,4 +13,4 @@ github.com/sensepost/gowitness
 # Markdown rendering in terminal
 github.com/charmbracelet/glow
 # Catting images in terminal
-go get github.com/trashhalo/imgcat/cmd/imgcat/
+github.com/trashhalo/imgcat/cmd/imgcat/

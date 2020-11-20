@@ -26,7 +26,7 @@ function install_lsd {
   is_installed lsd
   if [ $? -ne 0 ]; then
       TMP_FOLDER="$(mktemp)"
-      wget "https://github.com/Peltoche/lsd/releases/download/0.17.0/lsd_0.17.0_amd64.deb" -O $TMP_FOLDER 
+      wget "https://github.com/Peltoche/lsd/releases/download/0.18.0/lsd_0.18.0_amd64.deb" -O $TMP_FOLDER 
       sudo dpkg -i "$TEMP_FOLDER"
       rm -f "$TEMP_DEB"
   else
