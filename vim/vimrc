@@ -85,6 +85,8 @@ nnoremap <space> za                         " fold with space
 noremap <Leader>x :call VimuxCloseRunner()<CR>
 " Copy to unnamed register
 noremap <Leader>d "_
+" Toogle NerdTree
+map <C-n> :NERDTreeToggle<CR>
 
 " Get off my lawn - helpful when learning Vim :)
 nnoremap <Left> :echoe "Use h"<CR>
