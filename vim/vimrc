@@ -70,6 +70,7 @@ autocmd BufNewFile,BufRead *.go noremap <Leader>g :call VimuxRunCommand("go run 
 autocmd BufNewFile,BufRead *.go noremap <Leader>f :call VimuxRunCommand("gofmt " . bufname("%"))<CR>
 autocmd BufNewFile,BufRead *.go noremap <Leader>l :call VimuxRunCommand("golint")<CR>
 autocmd BufNewFile,BufRead *.go noremap <Leader>v :call VimuxRunCommand("go vet")<CR>
+autocmd BufNewFile,BufRead *.go noremap <C-a> :GoAlternate<CR>
 
 " JS
 autocmd BufNewFile,BufRead *.js set ts=2
