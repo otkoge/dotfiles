@@ -96,16 +96,27 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 
+" YcmSettings
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_autoclose_preview_window_after_completion=1
+
+
 source ~/.vim/plugins.vim
 source ~/.vim/statusline.vim
 
 
-colo molokai
-let g:molokai_original = 1
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+colo gruvbox
+set background=dark
+" colo molokai
+" let g:molokai_original = 1
+hi StatusLineTerm ctermbg=24 ctermfg=254
+
+" VIMux
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "50"
+
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#trailing_comma = 'all'
 
 
 "python with virtualenv support
