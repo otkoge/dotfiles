@@ -66,7 +66,7 @@ endif
 let g:go_fmt_command = "goimports"          " Autoimport on save
 autocmd BufNewFile,BufRead *.go set foldmethod=syntax           " Set folding to syntax if it's a go file
 autocmd BufNewFile,BufRead *.go noremap <C-a> :GoAlternate<CR>
-autocmd BufNewFile,BufRead *.go noremap <C-a> :GoDoc<CR> " Go docs
+autocmd BufNewFile,BufRead *.go noremap <C-d> :GoDoc<CR> " Go docs
 autocmd BufNewFile,BufRead *.go noremap <C-r> :GoRename<CR>
 autocmd BufNewFile,BufRead *.go noremap <C-c> :GoCoverage<CR>
 autocmd BufNewFile,BufRead *.go noremap <C-i> :GoInfo<CR>
