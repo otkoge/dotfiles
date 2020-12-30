@@ -39,6 +39,8 @@ set history=1000                            " Set remembered lines
 set hlsearch                                " Highligh searches
 set incsearch                               " Show search results as you type
 set timeoutlen=1000 ttimeoutlen=0           " Remove timeout when hitting escape
+set list
+set listchars=tab:>-,eol:$,space:.,trail:x
 " set backspace=indent,eol,start              " http://vi.stackexchange.com/a/2163
 
 " Python specific stuff
@@ -49,7 +51,7 @@ au BufNewFile,BufRead *.py
     \set softtabstop=4
     \set textwidth=79
     \set fileformat=unix
-    \set foldmethod=indent           
+    \set foldmethod=indent
     \match BadWhitespace /\s\+$/
     \set encoding=utf-8
 
@@ -66,7 +68,7 @@ endif
 let g:go_fmt_command = "goimports"          " Autoimport on save
 autocmd BufNewFile,BufRead *.go set foldmethod=syntax           " Set folding to syntax if it's a go file
 autocmd BufNewFile,BufRead *.go noremap <C-a> :GoAlternate<CR>
-autocmd BufNewFile,BufRead *.go noremap <C-d> :GoDoc<CR> " Go docs
+" autocmd BufNewFile,BufRead *.go noremap <C-d> :GoDoc<CR> " Go docs
 autocmd BufNewFile,BufRead *.go noremap <C-r> :GoRename<CR>
 autocmd BufNewFile,BufRead *.go noremap <C-c> :GoCoverage<CR>
 autocmd BufNewFile,BufRead *.go noremap <C-i> :GoInfo<CR>
@@ -101,6 +103,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " YcmSettings
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap <C-f> <plug>(YCMHover)
 let g:ycm_autoclose_preview_window_after_completion=1
 
 
