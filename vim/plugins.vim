@@ -24,5 +24,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-python/python-syntax'
 Plug 'tmhedberg/SimpylFold'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'dense-analysis/ale'
 call plug#end()
 filetype plugin indent on
