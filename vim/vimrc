@@ -39,6 +39,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-python/python-syntax'
 Plug 'tmhedberg/SimpylFold'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'dense-analysis/ale'
 call plug#end()
 " filetype plugin indent on
 
@@ -129,6 +130,17 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" ALE
+let g:ale_linters = {'python': ['flake8', 'pylint']}
+let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
+let g:ale_fix_on_save=1
+let g:ale_set_highlights=1
+let g:ale_set_signs=1
+hi StatusLineTerm ctermbg=24 ctermfg=254
+hi ALEError ctermbg=Red ctermfg=Green cterm=underline,bold ctermul=Red
+hi ALEWarning ctermfg=Yellow cterm=underline ctermul=Yellow
+hi ALEInfo cterm=underline 
+
 
 " YcmSettings
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -144,7 +156,6 @@ colo gruvbox
 set background=dark
 " colo molokai
 " let g:molokai_original = 1
-hi StatusLineTerm ctermbg=24 ctermfg=254
 
 " VIMux
 let g:VimuxOrientation = "h"
