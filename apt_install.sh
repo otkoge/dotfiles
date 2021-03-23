@@ -25,10 +25,10 @@ function install {
 function install_lsd {
   is_installed lsd
   if [ $? -ne 0 ]; then
-      TMP_FOLDER="$(mktemp)"
-      wget "https://github.com/Peltoche/lsd/releases/download/0.18.0/lsd_0.18.0_amd64.deb" -O $TMP_FOLDER 
-      sudo dpkg -i "$TEMP_FOLDER"
-      rm -f "$TEMP_DEB"
+      TMP_FILE="$(mktemp)"
+      wget "https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd_0.19.0_amd64.deb" -O $TMP_FILE
+      sudo dpkg -i "$TMP_FILE"
+      rm -f "$TMP_FILE"
   else
        echo "LSD already installed"
   fi
