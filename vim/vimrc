@@ -101,12 +101,33 @@ autocmd BufNewFile,BufRead *.go set foldmethod=syntax           " Set folding to
 autocmd BufNewFile,BufRead *.go noremap <C-a> :GoAlternate<CR>
 " autocmd BufNewFile,BufRead *.go noremap <C-d> :GoDoc<CR> " Go docs
 autocmd BufNewFile,BufRead *.go noremap <C-r> :GoRename<CR>
-autocmd BufNewFile,BufRead *.go noremap <C-c> :GoCoverage<CR>
+" autocmd BufNewFile,BufRead *.go noremap <C-c> <Plug>(go-coverage-toggle)
 autocmd BufNewFile,BufRead *.go noremap <C-i> :GoInfo<CR>
-autocmd BufNewFile,BufRead *.go noremap <Leader>t :GoTest<CR>
+autocmd BufNewFile,BufRead *.go noremap <Leader>t <Plug>(go-test)
 autocmd BufNewFile,BufRead *.go noremap <Leader>l :GoMetaLinter<CR>
 autocmd BufNewFile,BufRead *.go noremap <Leader>f :GoTestFunc<CR>
 autocmd BufNewFile,BufRead *.go noremap <Leader>r :GoRun<CR>
+autocmd BufNewFile,BufRead *.go map <leader>c  <Plug>(go-coverage-toggle)
+autocmd BufNewFile,BufRead *.go map <leader>d  :GoDoc<CR>
+autocmd BufNewFile,BufRead *.go nmap <leader>i  <Plug>(go-implements)
+autocmd BufNewFile,BufRead *.go nmap <leader>di  <Plug>(go-describe)
+autocmd BufNewFile,BufRead *.go nmap <leader>cc  <Plug>(go-callers)
+
+" disable all linters as that is taken care of by coc.nvim
+let g:go_diagnostics_enabled = 0
+let g:go_metalinter_enabled = []
+" don't jump to errors after metalinter is invoked
+let g:go_jump_to_error = 0
+" automatically highlight variable your cursor is on
+let g:go_auto_sameids = 0
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
 
 " JS
 autocmd BufNewFile,BufRead *.js set ts=2
