@@ -103,7 +103,7 @@ autocmd BufNewFile,BufRead *.go noremap <C-a> :GoAlternate<CR>
 autocmd BufNewFile,BufRead *.go noremap <C-r> :GoRename<CR>
 " autocmd BufNewFile,BufRead *.go noremap <C-c> <Plug>(go-coverage-toggle)
 autocmd BufNewFile,BufRead *.go noremap <C-i> :GoInfo<CR>
-autocmd BufNewFile,BufRead *.go noremap <Leader>t <Plug>(go-test)
+autocmd BufNewFile,BufRead *.go noremap <Leader>t :GoTest<CR>
 autocmd BufNewFile,BufRead *.go noremap <Leader>l :GoMetaLinter<CR>
 autocmd BufNewFile,BufRead *.go noremap <Leader>f :GoTestFunc<CR>
 autocmd BufNewFile,BufRead *.go noremap <Leader>r :GoRun<CR>
