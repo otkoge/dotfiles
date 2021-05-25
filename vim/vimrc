@@ -155,6 +155,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 " ALE
 let g:ale_linters = {'python': ['flake8', 'pylint']}
 let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
+let g:ale_python_black_options="-l 80"
 let g:ale_fix_on_save=1
 let g:ale_set_highlights=1
 let g:ale_set_signs=1
