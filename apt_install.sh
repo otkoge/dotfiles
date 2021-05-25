@@ -10,10 +10,6 @@ function is_installed {
 
 function install {
   is_installed $1
-  if [[ $1 == "vim" ]]; then
-    # https://itsfoss.com/vim-8-release-install/
-    sudo add-apt-repository ppa:jonathonf/vim
-  fi
   if [ $? -ne 0 ]; then
     echo "Installing: ${1}..."
     sudo apt install $1
@@ -26,7 +22,7 @@ function install_lsd {
   is_installed lsd
   if [ $? -ne 0 ]; then
       TMP_FILE="$(mktemp)"
-      wget "https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd_0.19.0_amd64.deb" -O $TMP_FILE
+      wget "https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd_0.20.1_amd64.deb" -O $TMP_FILE
       sudo dpkg -i "$TMP_FILE"
       rm -f "$TMP_FILE"
   else
@@ -39,7 +35,10 @@ function install_lsd {
 install git
 install zsh
 install curl
-install vim
 install python3-pip
 install_lsd
 install tmux
+
+mkdir ~/.appimages
+curl -L -o ~/.appimages/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x ~/.appimages/nvim
