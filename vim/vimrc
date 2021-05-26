@@ -76,8 +76,8 @@ set listchars=tab:>-,eol:$,space:.,trail:x
 
 " Python specific stuff
 let python_highlight_all = 1                " enable all Python syntax highlighting features
-set foldlevel=99
 au BufNewFile,BufRead *.py
+    \set foldlevel=99
     \set tabstop=4
     \set softtabstop=4
     \set textwidth=79

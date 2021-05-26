@@ -1,10 +1,10 @@
-function is_installed { 
-    if [[ $1 == "python3-pip" ]]; then
-        which pip3 &> /dev/null
-    else
-        which $1 &> /dev/null 
-    fi
-}
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+
+source "${DIR}/zsh/scripts/update_my_tools"
+
+install_base_tools
 
 
 
@@ -21,21 +21,56 @@ if [[ ! -d ~/.oh-my-zsh/custom/themes/powerlevel9k ]]; then
     echo "Install nerd fonts: https://github.com/ryanoasis/nerd-fonts"
 fi
 
+# Go tools
 
-# Install plug 
-if [[ ! -d ~/.vim/autoload/plug.vim ]]; then
-    echo "Installing Plug"
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# cat $DIR/tools/go_tools | grep -v '#' | grep -v -e '^$' | while read line; do
+#     is_installed $(echo $line | rev | cut  -d"/" -f1 | rev)
+#     if [[ $? -ne 0 ]]; then
+#         go get $line
+#     fi
+# done 
+
+
+function symlink_if_needed {
+    if [ ! -L $1 ]; then
+        ln -s $2 $1
+        echo "Symlinking $1 to $2"
+    else
+        echo "Link $1 already exists: $(ls -la $1 | rev | cut -d" " -f1 | rev)"
+    fi
+}
+
+COMP_DIR="$HOME/.completions"
+symlink_if_needed $COMP_DIR "$DIR/zsh/completions" 
+
+ALIAS_FILE="$HOME/.aliases"
+symlink_if_needed $ALIAS_FILE "$DIR/zsh/aliases" 
+
+ZSHRCFILE="$HOME/.zshrc"
+symlink_if_needed $ZSHRCFILE "$DIR/zsh/zshrc" 
+
+P9KFILE="$HOME/.powerlevel9k"
+symlink_if_needed $P9KFILE "$DIR/zsh/powerlevel9k" 
+
+SCRIPTFOLDER="$HOME/.scripts"
+symlink_if_needed $SCRIPTFOLDER "$DIR/zsh/scripts"
+
+TMUXCONF="$HOME/.tmux.conf"
+symlink_if_needed $TMUXCONF "$DIR/tmux.conf"
+
+
+
+NVIM_CONF_FOLDER="$HOME/.config/nvim"
+if [ ! -d $NVIM_CONF_FOLDER ]; then
+    mkdir -p $NVIM_CONF_FOLDER
 fi
 
+NVIMCONF="$NVIM_CONF_FOLDER/init.vim"
+symlink_if_needed $NVIMCONF "$DIR/vim/init.vim"
 
-# Go tools
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+NVIMSLINE="$NVIM_CONF_FOLDER/statusline.vim"
+symlink_if_needed $NVIMSLINE "$DIR/vim/statusline.vim"
 
-cat $DIR/tools/go_tools | grep -v '#' | grep -v -e '^$' | while read line; do
-    is_installed $(echo $line | rev | cut  -d"/" -f1 | rev)
-    if [[ $? -ne 0 ]]; then
-        go get $line
-    fi
-done 
+for SCRIPT in "$SCRIPTFOLDER/*"; do
+    chmod u+x $SCRIPT
+done
