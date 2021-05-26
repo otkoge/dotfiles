@@ -31,6 +31,19 @@ function install_lsd {
 
 }
 
+function install_go {
+    VERSION=$(curl -s https://golang.org/doc/install | grep goVersion | cut -d'"' -f2)
+    curl -O -L "https://golang.org/dl/${VERSION}.linux-amd64.tar.gz"
+    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf "${VERSION}.linux-amd64.tar.gz"
+    sudo rm "${VERSION}.linux-amd64.tar.gz"
+}
+
+function install_nvim {
+    mkdir ~/.appimages
+    curl -L -o ~/.appimages/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x ~/.appimages/nvim
+}
+
 
 install git
 install zsh
@@ -38,7 +51,5 @@ install curl
 install python3-pip
 install_lsd
 install tmux
-
-mkdir ~/.appimages
-curl -L -o ~/.appimages/nvim https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x ~/.appimages/nvim
+install_go
+install_nvim
