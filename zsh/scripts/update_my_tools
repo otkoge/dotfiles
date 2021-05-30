@@ -1,11 +1,7 @@
 # All the needed tools
 
 function is_installed { 
-    if [[ $1 == "python3-pip" ]]; then
-        which pip3 &> /dev/null
-    else
-        which $1 &> /dev/null 
-    fi
+    which $1 &> /dev/null 
 }
 
 function install {
@@ -15,6 +11,22 @@ function install {
         sudo apt install $1
     else
         echo "Already installed: ${1}"
+    fi
+}
+
+function install_python {
+    is_installed pip3  
+    if [ $? -ne 0 ]; then
+        sudo apt install python3-pip
+        sudo pip3 install --upgrade pip
+    fi
+    pip3 freeze | grep "virtualenv=" &> /dev/null
+    if [ $? -ne 0 ]; then
+        sudo pip3 install --upgrade virtualenv
+    fi
+    pip3 freeze | grep "virtualenvwrapper=" &> /dev/null
+    if [ $? -ne 0 ]; then
+        sudo pip3 install --upgrade virtualenvwrapper
     fi
 }
 
@@ -48,29 +60,10 @@ function update_go {
 }
 
 function update_nvim {
-    if [ ! -d ~/.local/bin/ ]; then
-        mkdir -p ~/.local/bin/
-    fi
-    VERSION=$(curl -s -L -H "Accept: application/json" https://github.com/neovim/neovim/releases/nightly | jq -r '.tag_name')
-    is_installed "nvim"
-    if [ $? -eq 0 ] && [[ "$(nvim --version | head -1 | cut -d" " -f2)" == $VERSION ]]; then 
-        echo "nvim already at latest version" 
-    else
-        echo "Updating Neovim ${VERSION}"
-        rm -f ~/.local/bin/nvim
-        curl -L -o ~/.local/bin/nvim https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-        chmod u+x ~/.local/bin/nvim
-    fi
+    echo "Updating Neovim ${VERSION}"
+    rm -f ~/.local/bin/nvim
+    curl -L -o ~/.local/bin/nvim https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+    chmod u+x ~/.local/bin/nvim
 }
 
-function install_base_tools {
-    install jq
-    install git
-    install zsh
-    install curl
-    install python3-pip
-    update_go
-    update_lsd
-    update_nvim
-}
 

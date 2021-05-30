@@ -14,3 +14,5 @@ github.com/sensepost/gowitness
 github.com/charmbracelet/glow
 # Catting images in terminal
 github.com/trashhalo/imgcat/cmd/imgcat/
+github.com/melbahja/got/cmd/got
+
