@@ -2,6 +2,7 @@
 let g:system_copy#copy_command = $VIMCLIP
 
 call plug#begin()
+Plug 'benmills/vimux'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -79,9 +80,13 @@ fun! EmptyRegisters()
     endfor
 endfun
 
+" VIMux
+" let g:VimuxOrientation = "h"
+" let g:VimuxHeight = "50"
+
 " Python
 let g:python3_host_prog = '~/.venv/nvim/bin/python'
-let g:black_linelength = 80
+let g:black_linelength = 79
 let python_highlight_all = 1                " enable all Python syntax highlighting features
 au BufNewFile,BufRead *.py
     \set foldlevel=99
@@ -92,6 +97,12 @@ au BufNewFile,BufRead *.py
     \set foldmethod=indent
     \match BadWhitespace /\s\+$/
     \set encoding=utf-8
+
+if $VIRTUAL_ENV != ""
+    au BufNewFile,BufRead *.py noremap <Leader>py :call VimuxRunCommand($VIRTUAL_ENV . "/bin/python " . bufname("%"))<CR>
+else
+    au BufNewFile,BufRead *.py noremap <Leader>py :call VimuxRunCommand("python " . bufname("%"))<CR>
+endif
 autocmd BufWritePre *.py execute ':Black'
 let g:black_virtualenv='~/.venv/nvim'
 
@@ -145,3 +156,16 @@ nnoremap <leader>sr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>ca :lua vim.lsp.buf.code_action()<CR>
 " nnoremap <leader>cd :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
 " nnoremap <leader>gn :lua vim.lsp.diagnostic.goto_next()<CR>
+
+
+
+"python with virtualenv support
+
+py3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  exec(open(activate_this).read(), dict(__file__=activate_this))
+EOF
