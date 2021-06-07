@@ -4,6 +4,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 source "${DIR}/zsh/scripts/update_my_tools"
 install jq
+install tmux
 install nodejs
 install npm
 install git
@@ -17,9 +18,11 @@ update_nvim
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
     export WORKON_HOME=~/.venv
+    export PATH=/usr/local/go/bin/:$PATH
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
     export WORKON_HOME=~/.virtualenvs
+    export PATH=/usr/local/go/bin/:$PATH
 fi
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 install_python

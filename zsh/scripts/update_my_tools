@@ -62,6 +62,7 @@ function update_go {
 function update_nvim {
     echo "Updating Neovim ${VERSION}"
     rm -f ~/.local/bin/nvim
+    mkdir -p ~/.local/bin
     curl -L -o ~/.local/bin/nvim https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
     chmod u+x ~/.local/bin/nvim
 }
