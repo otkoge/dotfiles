@@ -46,14 +46,15 @@ function update_lsd {
 }
 
 function update_go {
-    VERSION=$(curl -s https://golang.org/doc/install | grep goVersion | cut -d'"' -f2)
+    VERSION=$(curl -s https://golang.org/dl/ | grep linux-amd64 | head -1 | grep -oP 'go[0-9\.]+')
     is_installed "go"
     if [ $? -eq 0 ] && [[ "$(go version | cut -d" " -f3)" == "$VERSION" ]]; then
         echo "${VERSION} is already installed"
     else
         echo "Updating ($VERSION)"
         TMP_FILE="$(mktemp)"
-        curl -o $TMP_FILE -L "https://golang.org/dl/${VERSION}.linux-amd64.tar.gz"
+        echo "Downloading https://golang.org/dl/${VERSION}linux-amd64.tar.gz"
+        curl -o $TMP_FILE -L "https://golang.org/dl/${VERSION}linux-amd64.tar.gz"
         sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf "${TMP_FILE}"
         sudo rm "${TMP_FILE}"
     fi
