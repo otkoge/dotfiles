@@ -141,7 +141,8 @@ nnoremap <leader>gc :lua require('telescope_config').git_branches()<CR>
 nnoremap <leader>fmt :Neoformat<CR>
 nnoremap <leader>fmtj :Neoformat! json<CR>
 
-
+" Replace highlighed
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " LSP
 lua require("lsp")
