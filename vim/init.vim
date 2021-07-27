@@ -33,6 +33,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'sbdchd/neoformat'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 colo gruvbox
@@ -106,6 +107,24 @@ endif
 autocmd BufWritePre *.py execute ':Black'
 let g:black_virtualenv='~/.venv/nvim'
 
+" Go
+let g:go_fmt_command = "goimports"          " Autoimport on save
+autocmd BufNewFile,BufRead *.go set foldmethod=syntax           " Set folding to syntax if it's a go file
+autocmd BufNewFile,BufRead *.go noremap <C-a> :GoAlternate<CR>
+" autocmd BufNewFile,BufRead *.go noremap <C-d> :GoDoc<CR> " Go docs
+autocmd BufNewFile,BufRead *.go noremap <C-r> :GoRename<CR>
+" autocmd BufNewFile,BufRead *.go noremap <C-c> <Plug>(go-coverage-toggle)
+autocmd BufNewFile,BufRead *.go noremap <C-i> :GoInfo<CR>
+autocmd BufNewFile,BufRead *.go noremap <Leader>t :GoTest<CR>
+autocmd BufNewFile,BufRead *.go noremap <Leader>l :GoMetaLinter<CR>
+autocmd BufNewFile,BufRead *.go noremap <Leader>f :GoTestFunc<CR>
+autocmd BufNewFile,BufRead *.go noremap <Leader>r :GoRun<CR>
+autocmd BufNewFile,BufRead *.go map <leader>c  <Plug>(go-coverage-toggle)
+autocmd BufNewFile,BufRead *.go map <leader>d  :GoDoc<CR>
+autocmd BufNewFile,BufRead *.go nmap <leader>i  <Plug>(go-implements)
+autocmd BufNewFile,BufRead *.go nmap <leader>di  <Plug>(go-describe)
+autocmd BufNewFile,BufRead *.go nmap <leader>cc  <Plug>(go-callers)
+
 " Shortcuts
 " quite all with leader q
 map <Leader>q :qall<CR>                     " Quit all with Leader+q
@@ -157,6 +176,22 @@ nnoremap <leader>sr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>ca :lua vim.lsp.buf.code_action()<CR>
 " nnoremap <leader>cd :lua vim.lsp.util.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>
 " nnoremap <leader>gn :lua vim.lsp.diagnostic.goto_next()<CR>
+
+
+" ALE
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:airline#extensions#ale#enabled = 1
+let g:ale_linters = {'python': ['flake8', 'pylint']}
+let g:ale_fixers = {'*': [], 'python': ['black', 'isort']}
+let g:ale_python_black_options="-l 80"
+let g:ale_fix_on_save=1
+let g:ale_set_highlights=1
+let g:ale_set_signs=1
+hi StatusLineTerm ctermbg=24 ctermfg=254
+" hi ALEError ctermbg=Red ctermfg=Green cterm=underline,bold ctermul=Red
+" hi ALEWarning ctermfg=Yellow cterm=underline ctermul=Yellow
+" hi ALEInfo cterm=underline 
 
 
 
