@@ -124,6 +124,16 @@ autocmd BufNewFile,BufRead *.go map <leader>d  :GoDoc<CR>
 autocmd BufNewFile,BufRead *.go nmap <leader>i  <Plug>(go-implements)
 autocmd BufNewFile,BufRead *.go nmap <leader>di  <Plug>(go-describe)
 autocmd BufNewFile,BufRead *.go nmap <leader>cc  <Plug>(go-callers)
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1
 
 " Shortcuts
 " quite all with leader q
