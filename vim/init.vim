@@ -148,6 +148,7 @@ noremap <Leader>x :call VimuxCloseRunner()<CR>
 noremap <Leader>d "_
 " Toogle NerdTree
 map <C-n> :NERDTreeToggle<CR>
+map <leader>w :set wrap!<CR>
 
 " Get off my lawn - helpful when learning Vim :)
 nnoremap <Left> :echoe "Use h"<CR>
