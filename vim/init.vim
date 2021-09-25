@@ -34,6 +34,9 @@ Plug 'sbdchd/neoformat'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 Plug 'dense-analysis/ale'
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 colo gruvbox
@@ -203,6 +206,14 @@ hi StatusLineTerm ctermbg=24 ctermfg=254
 " hi ALEError ctermbg=Red ctermfg=Green cterm=underline,bold ctermul=Red
 " hi ALEWarning ctermfg=Yellow cterm=underline ctermul=Yellow
 " hi ALEInfo cterm=underline 
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsListSnippets="<c-l>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 
 
