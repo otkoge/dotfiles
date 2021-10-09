@@ -141,6 +141,7 @@ fi
 export PATH=$PATH:$GOPATH/bin
 # My scripts
 export PATH=$PATH:$HOME/.scripts
+export PATH=$PATH:$HOME/.dot/tools
 
 
 ## Alieses & Completions
