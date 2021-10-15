@@ -104,6 +104,9 @@ symlink_it $NVIMSLINE "$DIR/vim/statusline.vim"
 NVIMLUA="$NVIM_CONF_FOLDER/lua"
 symlink_it $NVIMLUA "$DIR/vim/lua"
 
+git clone git@github.com:otkoge/snippets.git $HOME/.snippets
+symlink_it $HOME/.snippets/navi $HOME/.local/share/navi/cheats/mysnippets
+
 
 for SCRIPT in "$SCRIPTFOLDER/*"; do
     chmod u+x $SCRIPT

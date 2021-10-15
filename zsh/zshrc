@@ -14,7 +14,7 @@ alias vim="nvim"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 if [ -f "$HOME/.powerlevel9k" ]; then
-    source "$HOME/.powerlevel9k" 
+source "$HOME/.powerlevel9k" 
 fi
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -118,24 +118,24 @@ export EDITOR='nvim'
 
 ## VirtualEnvWrapper
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
-    export WORKON_HOME=~/.venv
+export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
+export WORKON_HOME=~/.venv
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
-    export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+export WORKON_HOME=~/.virtualenvs
 fi
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 # Go home path
 export PATH=$PATH:$HOME/.local/bin
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    export GOPATH=$HOME/.go
+export GOPATH=$HOME/.go
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    export GOPATH=$HOME/go
+export GOPATH=$HOME/go
 fi
 
 export PATH=$PATH:$GOPATH/bin
@@ -148,11 +148,16 @@ source "$HOME/.aliases"
 
 export VIMCLIP="xclip -sel clipboard"
 if [ -f "$HOME/.localaliases" ]; then
-    source "$HOME/.localaliases"
+source "$HOME/.localaliases"
 fi
 export BURP="127.0.0.1:8080"
 bindkey -M vicmd v edit-command-line
 
 
 for f in $HOME/.completions/*_comp; do source $f; done
+complete -C '/usr/local/bin/aws_completer' aws
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="${PATH}:$HOME/.cargo/bin/"
+eval "$(navi widget zsh)"
+
