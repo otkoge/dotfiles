@@ -62,51 +62,17 @@ fi
 pip install 'python-language-server[all]'
 
 
-function symlink_it {
-    if [ ! -L $1 ]; then
-        echo "Symlinking $1 to $2"
-    else
-        rm $1
-        echo "Replacing existing link $1 to $2"
-    fi
-    ln -s $2 $1
-}
 
-COMP_DIR="$HOME/.completions"
-symlink_it $COMP_DIR "$DIR/zsh/completions" 
-
-ALIAS_FILE="$HOME/.aliases"
-symlink_it $ALIAS_FILE "$DIR/zsh/aliases" 
-
-ZSHRCFILE="$HOME/.zshrc"
-symlink_it $ZSHRCFILE "$DIR/zsh/zshrc" 
-
-P9KFILE="$HOME/.powerlevel9k"
-symlink_it $P9KFILE "$DIR/zsh/powerlevel9k" 
-
-SCRIPTFOLDER="$HOME/.scripts"
-symlink_it $SCRIPTFOLDER "$DIR/zsh/scripts"
-
-TMUXCONF="$HOME/.tmux.conf"
-symlink_it $TMUXCONF "$DIR/tmux.conf"
 
 NVIM_CONF_FOLDER="$HOME/.config/nvim"
 if [ ! -d $NVIM_CONF_FOLDER ]; then
     mkdir -p $NVIM_CONF_FOLDER
 fi
 
-NVIMCONF="$NVIM_CONF_FOLDER/init.vim"
-symlink_it $NVIMCONF "$DIR/vim/init.vim"
-
-NVIMSLINE="$NVIM_CONF_FOLDER/statusline.vim"
-symlink_it $NVIMSLINE "$DIR/vim/statusline.vim"
-
-NVIMLUA="$NVIM_CONF_FOLDER/lua"
-symlink_it $NVIMLUA "$DIR/vim/lua"
 
 git clone git@github.com:otkoge/snippets.git $HOME/.snippets
-symlink_it $HOME/.snippets/navi $HOME/.local/share/navi/cheats/mysnippets
 
+source $DIR/init.sh
 
 for SCRIPT in "$SCRIPTFOLDER/*"; do
     chmod u+x $SCRIPT
@@ -142,5 +108,7 @@ cat $DIR/tools/go_tools | grep -v '#' | grep -v -e '^$' | while read line; do
         go get $line
     fi
 done 
+
+
 
 

@@ -68,4 +68,21 @@ function update_nvim {
     chmod u+x ~/.local/bin/nvim
 }
 
+function update_fzf {
+    if [ -d $HOME/.fzf ]; then
+       cd $HOME/.fzf/ && git remote update && git status -uno | grep "is behind" 2> /dev/null
+        if [ $? -eq 0 ]; then
+            git pull
+            $HOME/.fzf/install
+        fi
+    else
+        git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+        $HOME/.fzf/install
+    fi
+}
+
+function install_navi {
+    bash <(curl -sL https://raw.githubusercontent.com/denisidoro/navi/master/scripts/install)
+}
+
 

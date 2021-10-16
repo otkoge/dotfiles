@@ -77,6 +77,7 @@ fi
 plugins=(git pip virtualenvwrapper colored-man-pages colorize copydir copyfile cp vi-mode docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.dot/init.sh
 
 
 # User configuration
