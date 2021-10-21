@@ -36,7 +36,7 @@ Plug 'nvim-treesitter/playground'
 Plug 'dense-analysis/ale'
 " Snippets
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 call plug#end()
 
 colo gruvbox
@@ -127,6 +127,7 @@ autocmd BufNewFile,BufRead *.go map <leader>d  :GoDoc<CR>
 autocmd BufNewFile,BufRead *.go nmap <leader>i  <Plug>(go-implements)
 autocmd BufNewFile,BufRead *.go nmap <leader>di  <Plug>(go-describe)
 autocmd BufNewFile,BufRead *.go nmap <leader>cc  <Plug>(go-callers)
+autocmd BufNewFile,BufRead *.go let g:UltiSnipsSnippetDirectories=["~/.snippets/vim"]
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
@@ -209,9 +210,12 @@ hi StatusLineTerm ctermbg=24 ctermfg=254
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsSnippetsDir="~/.snippets/vim"
+set runtimepath+=~/.snippets
+let g:UltiSnipsSnippetDirectories=["~/.snippets/vim"]
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
