@@ -139,6 +139,11 @@ let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
 let g:go_auto_type_info = 1
 
+
+" C++ things
+autocmd BufNewFile *.cpp 0r ~/.snippets/templates_vim/skeleton.cpp
+autocmd BufNewFile,BufRead *.cpp noremap <Leader>r :call VimuxRunCommand("g++ " . bufname("%") . " -o " . expand("%:r") . "; ./" . expand("%:r"))<CR>
+
 " Shortcuts
 " quite all with leader q
 map <Leader>q :qall<CR>                     " Quit all with Leader+q
