@@ -37,6 +37,7 @@ Plug 'dense-analysis/ale'
 " Snippets
 Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
+Plug 'github/copilot.vim'
 call plug#end()
 
 colo gruvbox
