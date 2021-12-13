@@ -34,6 +34,7 @@ Plug 'sbdchd/neoformat'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 Plug 'dense-analysis/ale'
+Plug 'vim-python/python-syntax'
 " Snippets
 Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
